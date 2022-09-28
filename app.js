@@ -35,46 +35,57 @@ function displayBirre(birre) {
 
     const abv = document.createElement('h2');
     abv.innerHTML = ' abv : ' + birra.abv;
+    abv.classList.add('item');
     divBirra.appendChild(abv);
 
     const ibu = document.createElement('h2');
     ibu.innerHTML = ' ibu :' + birra.ibu;
+    ibu.classList.add('item');
     divBirra.appendChild(ibu);
 
     const target_fg = document.createElement('h2');
     target_fg.innerHTML = ' target_fg : ' + birra.target_fg;
+    target_fg.classList.add('item');
     divBirra.appendChild(target_fg);
 
     const target_og = document.createElement('h2');
     target_og.innerHTML = ' target_og : ' + birra.target_og;
+    target_og.classList.add('item');
     divBirra.appendChild(target_og);
 
     const ebc = document.createElement('h2');
     ebc.innerHTML = ' ebc : ' + birra.ebc;
+    ebc.classList.add('item');
     divBirra.appendChild(ebc);
 
     const srm = document.createElement('h2');
     srm.innerHTML = ' srm : ' + birra.srm;
+    srm.classList.add('item');
     divBirra.appendChild(srm);
 
     const ph = document.createElement('h2');
     ph.innerHTML = ' ph : ' + birra.ph;
+    ph.classList.add('item');
     divBirra.appendChild(ph);
 
     const attenuation_level = document.createElement('h2');
     attenuation_level.innerHTML = ' attenuation_level : ' + birra.attenuation_level;
+    attenuation_level.classList.add('item')
     divBirra.appendChild(attenuation_level);
 
     const volume = document.createElement('h2');
     volume.innerHTML = 'volume : ' + birra.volume.value + ' ' + birra.volume.unit;
+    volume.classList.add('item')
     divBirra.appendChild(volume)
 
     const boil_volume = document.createElement('h2');
     boil_volume.innerHTML = ' boil_volume : ' + birra.boil_volume.value + ' ' + birra.boil_volume.unit;
+    boil_volume.classList.add('item')
     divBirra.appendChild(boil_volume);
 
     const method = document.createElement('h2');
     method.innerHTML =   ' method : ' + 'Value : ' + '' + birra.method.mash_temp[0].temp.value + ', ' + 'Unit : ' + '' + birra.method.mash_temp[0].temp.unit + ', ' + ' ' + 'Duration :' + ' ' + birra.method.mash_temp[0].duration;
+    method.classList.add('item')
     divBirra.appendChild(method);
 
    //  const method1 = document.createElement('ul');
@@ -88,11 +99,16 @@ function displayBirre(birre) {
 
     const fermentation = document.createElement('h2');
     fermentation.innerHTML = 'fermentation : ' + birra.method.fermentation.temp.value + ' ' + birra.method.fermentation.temp.unit + ' ' + birra.method.twist;
+    fermentation.classList.add('item')
     divBirra.appendChild(fermentation);
 
-    const titoloingredients = document.createElement('h1');
+    const titoloDiv = document.createElement('div');
+    titoloDiv.classList.add('divv');
+    divBirra.appendChild(titoloDiv);
+
+    const titoloingredients = document.createElement('h2');
     titoloingredients.innerHTML = 'ingredients : ';
-    divBirra.appendChild(titoloingredients);
+    titoloDiv.appendChild(titoloingredients);
 
     const ingredients = document.createElement('ul');
     for (const ingredient of birra.ingredients.malt) {
@@ -100,11 +116,11 @@ function displayBirre(birre) {
       ingredientArray.innerHTML =  ingredient.name + ' ' + ingredient.amount.value + ' ' + ingredient.amount.unit;
       ingredients.appendChild(ingredientArray);
     }
-    divBirra.appendChild(ingredients);
+    titoloDiv.appendChild(ingredients);
 
-    const titoloHope = document.createElement('h1');
+    const titoloHope = document.createElement('h2');
     titoloHope.innerHTML = 'hops : ';
-    divBirra.appendChild(titoloHope);
+    titoloDiv.appendChild(titoloHope);
 
     const hops = document.createElement('ul');
     for (const hop of birra.ingredients.hops) {
@@ -112,15 +128,15 @@ function displayBirre(birre) {
       hopArry.innerHTML = hop.name + ' ' + hop.amount.value + ' ' + hop.amount.unit + ' ' + hop.add + ' ' + hop.attribute;
       hops.appendChild(hopArry)
     }
-    divBirra.appendChild(hops);
+    titoloDiv.appendChild(hops);
 
     const yeast = document.createElement('h2');
     yeast.innerHTML = 'Yeast : ' + birra.ingredients.yeast;
-    divBirra.appendChild(yeast);
+    titoloDiv.appendChild(yeast);
 
-    const titoloFoodPairing = document.createElement('h1');
-    titoloFoodPairing.innerHTML = ' food_pairing : ';
-    divBirra.appendChild(titoloFoodPairing);
+    const titoloFoodPairing = document.createElement('h2');
+    titoloFoodPairing.innerHTML = ' Food pairing : ';
+    titoloDiv.appendChild(titoloFoodPairing);
 
     const food_pairing = document.createElement('ul');
     for (const pairing of birra.food_pairing) {
@@ -128,15 +144,15 @@ function displayBirre(birre) {
       pairingArry.innerHTML = pairing;
       food_pairing.appendChild(pairingArry);
     }
-    divBirra.appendChild(food_pairing);
+    titoloDiv.appendChild(food_pairing);
 
     const brewers_tips = document.createElement('p');
     brewers_tips.innerHTML = '<b> Brewers_tips: </b>' + birra.brewers_tips;
-    divBirra.appendChild(brewers_tips);
+    titoloDiv.appendChild(brewers_tips);
 
     const contributed_by = document.createElement('h3');
     contributed_by.innerText = 'Contributed by : ' + birra.contributed_by;
-    divBirra.appendChild(contributed_by);
+    titoloDiv.appendChild(contributed_by);
 
 
 
